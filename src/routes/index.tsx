@@ -86,12 +86,12 @@ function Index() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
-          <a href="#top" className="flex items-center gap-3">
-            <img src={logo.url} alt="1HALIQ Shipping & Logistics logo" className="h-12 w-12 rounded object-contain" width={48} height={48} />
-            <span className="leading-tight">
-              <span className="block font-display text-lg font-extrabold tracking-tight text-primary">1HALIQ</span>
-              <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-royal">Shipping &amp; Logistics</span>
+        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-2.5 sm:px-5 sm:py-3 md:flex md:justify-between md:gap-6">
+          <a href="#top" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+            <img src={logo.url} alt="1HALIQ Shipping & Logistics logo" className="h-10 w-10 shrink-0 rounded object-contain sm:h-12 sm:w-12" width={48} height={48} />
+            <span className="min-w-0 leading-tight">
+              <span className="block font-display text-base font-extrabold tracking-tight text-primary sm:text-lg">1HALIQ</span>
+              <span className="block truncate text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-royal sm:text-[0.62rem] sm:tracking-[0.2em]">Shipping &amp; Logistics</span>
             </span>
           </a>
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
@@ -100,8 +100,12 @@ function Index() {
             <a href="#track" className="transition-colors hover:text-royal">Track</a>
             <a href="#about" className="transition-colors hover:text-royal">About</a>
           </nav>
-          <a href="#contact" className="rounded bg-royal px-4 py-2 text-sm font-semibold text-royal-foreground transition-colors hover:bg-primary">
-            Request a quote
+          <a
+            href="#contact"
+            className="inline-flex h-11 shrink-0 items-center justify-center rounded bg-royal px-3.5 text-xs font-semibold text-royal-foreground transition-colors hover:bg-primary sm:px-4 sm:text-sm"
+          >
+            <span className="sm:hidden">Quote</span>
+            <span className="hidden sm:inline">Request a quote</span>
           </a>
         </div>
       </header>
@@ -111,34 +115,34 @@ function Index() {
         <section className="relative isolate overflow-hidden">
           <img src={heroImg.url} alt="Container ship berthed at a port during blue hour" width={1600} height={1000} className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-royal/60" />
-          <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-36">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-primary-foreground/75">
+          <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-5 sm:py-24 md:py-36">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-primary-foreground/75 sm:text-xs sm:tracking-[0.32em]">
               Connecting Worlds. Delivering Trust.
             </p>
-            <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-primary-foreground md:text-6xl">
+            <h1 className="mt-4 max-w-3xl font-display text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-primary-foreground sm:mt-5 sm:text-4xl md:text-6xl">
               Freight that arrives when you said it would.
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-primary-foreground/80 sm:mt-5 sm:text-base md:text-lg">
               1HALIQ Shipping &amp; Logistics plans, moves and clears cargo by air, ocean and road — with one coordinator accountable from pickup to delivery.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a href="#track" className="rounded bg-royal px-6 py-3 text-sm font-semibold text-royal-foreground transition-colors hover:bg-background hover:text-primary">
+            <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
+              <a href="#track" className="inline-flex min-h-11 items-center justify-center rounded bg-royal px-6 py-3 text-sm font-semibold text-royal-foreground transition-colors hover:bg-background hover:text-primary">
                 Track a shipment
               </a>
-              <a href="#services" className="rounded border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10">
+              <a href="#services" className="inline-flex min-h-11 items-center justify-center rounded border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10">
                 Our services
               </a>
             </div>
-            <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-primary-foreground/20 pt-8 sm:grid-cols-4">
+            <dl className="mt-10 grid max-w-2xl grid-cols-2 gap-x-4 gap-y-6 border-t border-primary-foreground/20 pt-7 sm:mt-14 sm:gap-6 sm:pt-8 sm:grid-cols-4">
               {[
                 ["60+", "Countries served"],
                 ["120+", "Airports covered"],
                 ["98.4%", "On-time rate"],
                 ["24/7", "Shipment support"],
               ].map(([value, label]) => (
-                <div key={label}>
-                  <dt className="font-display text-2xl font-bold text-primary-foreground">{value}</dt>
-                  <dd className="mt-1 text-xs uppercase tracking-wider text-primary-foreground/65">{label}</dd>
+                <div key={label} className="min-w-0">
+                  <dt className="font-display text-xl font-bold text-primary-foreground sm:text-2xl">{value}</dt>
+                  <dd className="mt-1 text-[0.68rem] uppercase tracking-wider text-primary-foreground/65 sm:text-xs">{label}</dd>
                 </div>
               ))}
             </dl>
@@ -146,21 +150,21 @@ function Index() {
         </section>
 
         {/* Services */}
-        <section id="services" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">Shipping services</p>
-          <h2 className="mt-3 max-w-2xl font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+        <section id="services" className="mx-auto max-w-6xl px-4 py-14 sm:px-5 sm:py-20 md:py-28">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-royal sm:text-xs sm:tracking-[0.28em]">Shipping services</p>
+          <h2 className="mt-3 max-w-2xl font-display text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">
             Three modes, one accountable operation.
           </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:mt-12 sm:gap-6 md:grid-cols-3">
             {services.map((s) => (
               <article key={s.title} className="group overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-shadow hover:shadow-lg">
-                <img src={s.img} alt={s.alt} loading="lazy" width={1024} height={768} className="h-48 w-full object-cover" />
-                <div className="p-6">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded bg-secondary text-royal">
+                <img src={s.img} alt={s.alt} loading="lazy" width={1024} height={768} className="h-40 w-full object-cover sm:h-48" />
+                <div className="p-5 sm:p-6">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-secondary text-royal">
                       <s.icon className="h-5 w-5" aria-hidden="true" />
                     </span>
-                    <h3 className="font-display text-xl font-bold tracking-tight">{s.title}</h3>
+                    <h3 className="min-w-0 font-display text-lg font-bold tracking-tight sm:text-xl">{s.title}</h3>
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
                   <ul className="mt-5 space-y-2 text-sm text-foreground/80">
@@ -178,15 +182,15 @@ function Index() {
         </section>
 
         {/* Why choose us */}
-        <section id="why" className="bg-secondary py-20 md:py-28">
-          <div className="mx-auto max-w-6xl px-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">Why choose us</p>
-            <h2 className="mt-3 max-w-2xl font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+        <section id="why" className="bg-secondary py-14 sm:py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-5">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-royal sm:text-xs sm:tracking-[0.28em]">Why choose us</p>
+            <h2 className="mt-3 max-w-2xl font-display text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">
               Logistics judged on what actually lands.
             </h2>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-8 grid gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
               {reasons.map((r) => (
-                <div key={r.title} className="rounded-lg border border-border bg-card p-6">
+                <div key={r.title} className="rounded-lg border border-border bg-card p-5 sm:p-6">
                   <r.icon className="h-6 w-6 text-royal" aria-hidden="true" />
                   <h3 className="mt-4 font-display text-lg font-bold tracking-tight">{r.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.copy}</p>
@@ -197,11 +201,11 @@ function Index() {
         </section>
 
         {/* Tracking */}
-        <section id="track" className="bg-primary py-20 md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-2 md:items-center">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary-foreground/70">Shipment tracking</p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-primary-foreground md:text-4xl">
+        <section id="track" className="bg-primary py-14 sm:py-20 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:gap-10 sm:px-5 md:grid-cols-2 md:items-center">
+            <div className="min-w-0">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-primary-foreground/70 sm:text-xs sm:tracking-[0.28em]">Shipment tracking</p>
+              <h2 className="mt-3 font-display text-2xl font-extrabold tracking-tight text-primary-foreground sm:text-3xl md:text-4xl">
                 Where is my cargo right now?
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-primary-foreground/75">
@@ -209,7 +213,7 @@ function Index() {
               </p>
             </div>
             <form
-              className="rounded-lg bg-card p-6 shadow-lg"
+              className="min-w-0 rounded-lg bg-card p-5 shadow-lg sm:p-6"
               onSubmit={(e) => {
                 e.preventDefault();
                 setTrackResult(
@@ -226,9 +230,9 @@ function Index() {
                   value={tracking}
                   onChange={(e) => setTracking(e.target.value)}
                   placeholder="e.g. HLQ-4820193"
-                  className="w-full rounded border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-royal focus:ring-2 focus:ring-royal/30"
+                  className="h-11 w-full min-w-0 rounded border border-input bg-background px-3 text-base outline-none focus:border-royal focus:ring-2 focus:ring-royal/30 sm:text-sm"
                 />
-                <button type="submit" className="inline-flex items-center justify-center gap-2 rounded bg-royal px-5 py-2.5 text-sm font-semibold text-royal-foreground transition-colors hover:bg-primary">
+                <button type="submit" className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded bg-royal px-5 text-sm font-semibold text-royal-foreground transition-colors hover:bg-primary">
                   <Search className="h-4 w-4" aria-hidden="true" /> Track
                 </button>
               </div>
@@ -240,12 +244,12 @@ function Index() {
         </section>
 
         {/* About */}
-        <section id="about" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <div className="grid gap-12 md:grid-cols-2 md:items-center">
-            <img src={aboutImg.url} alt="Logistics team checking shipment paperwork in a warehouse" loading="lazy" width={1200} height={900} className="rounded-lg border border-border object-cover" />
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">About 1HALIQ</p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+        <section id="about" className="mx-auto max-w-6xl px-4 py-14 sm:px-5 sm:py-20 md:py-28">
+          <div className="grid gap-8 sm:gap-12 md:grid-cols-2 md:items-center">
+            <img src={aboutImg.url} alt="Logistics team checking shipment paperwork in a warehouse" loading="lazy" width={1200} height={900} className="h-56 w-full rounded-lg border border-border object-cover sm:h-auto" />
+            <div className="min-w-0">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-royal sm:text-xs sm:tracking-[0.28em]">About 1HALIQ</p>
+              <h2 className="mt-3 font-display text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">
                 Built on paperwork done right and promises kept.
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
@@ -267,22 +271,22 @@ function Index() {
         </section>
 
         {/* Contact */}
-        <section id="contact" className="bg-secondary py-20 md:py-28">
-          <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">Contact</p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-4xl">Tell us what needs moving.</h2>
+        <section id="contact" className="bg-secondary py-14 sm:py-20 md:py-28">
+          <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:gap-12 sm:px-5 md:grid-cols-2">
+            <div className="min-w-0">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-royal sm:text-xs sm:tracking-[0.28em]">Contact</p>
+              <h2 className="mt-3 font-display text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">Tell us what needs moving.</h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
                 Share the route, commodity and timeline and we will come back with an all-in rate and transit time.
               </p>
-              <ul className="mt-8 space-y-4 text-sm">
-                <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-royal" aria-hidden="true" /> ops@1haliq.com</li>
-                <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-royal" aria-hidden="true" /> +1 (555) 018-4420</li>
-                <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-royal" aria-hidden="true" /> Port Business Centre, Suite 12</li>
+              <ul className="mt-6 space-y-1 text-sm sm:mt-8">
+                <li><a href="mailto:ops@1haliq.com" className="flex min-h-11 items-center gap-3 break-all hover:text-royal"><Mail className="h-4 w-4 shrink-0 text-royal" aria-hidden="true" /> ops@1haliq.com</a></li>
+                <li><a href="tel:+15550184420" className="flex min-h-11 items-center gap-3 hover:text-royal"><Phone className="h-4 w-4 shrink-0 text-royal" aria-hidden="true" /> +1 (555) 018-4420</a></li>
+                <li className="flex min-h-11 items-center gap-3"><MapPin className="h-4 w-4 shrink-0 text-royal" aria-hidden="true" /> Port Business Centre, Suite 12</li>
               </ul>
             </div>
             <form
-              className="rounded-lg border border-border bg-card p-6 shadow-sm"
+              className="min-w-0 rounded-lg border border-border bg-card p-5 shadow-sm sm:p-6"
               onSubmit={(e) => {
                 e.preventDefault();
                 setContactSent(true);
@@ -302,11 +306,11 @@ function Index() {
                   id="details"
                   rows={4}
                   required
-                  className="mt-2 w-full rounded border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-royal focus:ring-2 focus:ring-royal/30"
+                  className="mt-2 w-full min-w-0 rounded border border-input bg-background px-3 py-2.5 text-base outline-none focus:border-royal focus:ring-2 focus:ring-royal/30 sm:text-sm"
                   placeholder="Commodity, weight, dimensions, preferred mode and timing"
                 />
               </div>
-              <button type="submit" className="mt-5 w-full rounded bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-royal">
+              <button type="submit" className="mt-5 min-h-11 w-full rounded bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-royal">
                 Send enquiry
               </button>
               {contactSent && (
@@ -317,13 +321,13 @@ function Index() {
         </section>
       </main>
 
-      <footer className="bg-primary py-12 text-primary-foreground">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 sm:flex-row sm:items-center">
-          <div className="flex items-center gap-3">
-            <img src={logo.url} alt="1HALIQ Shipping & Logistics logo" loading="lazy" width={44} height={44} className="h-11 w-11 rounded bg-background object-contain" />
-            <div>
-              <p className="font-display text-base font-extrabold tracking-tight">1HALIQ Shipping &amp; Logistics</p>
-              <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/65">Connecting Worlds. Delivering Trust.</p>
+      <footer className="bg-primary py-10 text-primary-foreground sm:py-12">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-5 px-4 sm:flex-row sm:items-center sm:gap-6 sm:px-5">
+          <div className="flex min-w-0 items-center gap-3">
+            <img src={logo.url} alt="1HALIQ Shipping & Logistics logo" loading="lazy" width={44} height={44} className="h-11 w-11 shrink-0 rounded bg-background object-contain" />
+            <div className="min-w-0">
+              <p className="font-display text-sm font-extrabold tracking-tight sm:text-base">1HALIQ Shipping &amp; Logistics</p>
+              <p className="text-[0.6rem] uppercase tracking-[0.14em] text-primary-foreground/65 sm:text-xs sm:tracking-[0.2em]">Connecting Worlds. Delivering Trust.</p>
             </div>
           </div>
           <p className="text-xs text-primary-foreground/60">© {new Date().getFullYear()} 1HALIQ Shipping &amp; Logistics. All rights reserved.</p>
@@ -341,7 +345,7 @@ function Field({ id, label, type = "text" }: { id: string; label: string; type?:
         id={id}
         type={type}
         required
-        className="mt-2 w-full rounded border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-royal focus:ring-2 focus:ring-royal/30"
+        className="mt-2 h-11 w-full min-w-0 rounded border border-input bg-background px-3 text-base outline-none focus:border-royal focus:ring-2 focus:ring-royal/30 sm:text-sm"
       />
     </div>
   );
