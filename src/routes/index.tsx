@@ -182,15 +182,15 @@ function Index() {
         </section>
 
         {/* Why choose us */}
-        <section id="why" className="bg-secondary py-20 md:py-28">
-          <div className="mx-auto max-w-6xl px-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">Why choose us</p>
-            <h2 className="mt-3 max-w-2xl font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+        <section id="why" className="bg-secondary py-14 sm:py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-5">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-royal sm:text-xs sm:tracking-[0.28em]">Why choose us</p>
+            <h2 className="mt-3 max-w-2xl font-display text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">
               Logistics judged on what actually lands.
             </h2>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-8 grid gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
               {reasons.map((r) => (
-                <div key={r.title} className="rounded-lg border border-border bg-card p-6">
+                <div key={r.title} className="rounded-lg border border-border bg-card p-5 sm:p-6">
                   <r.icon className="h-6 w-6 text-royal" aria-hidden="true" />
                   <h3 className="mt-4 font-display text-lg font-bold tracking-tight">{r.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.copy}</p>
