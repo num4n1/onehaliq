@@ -86,12 +86,12 @@ function Index() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
-          <a href="#top" className="flex items-center gap-3">
-            <img src={logo.url} alt="1HALIQ Shipping & Logistics logo" className="h-12 w-12 rounded object-contain" width={48} height={48} />
-            <span className="leading-tight">
-              <span className="block font-display text-lg font-extrabold tracking-tight text-primary">1HALIQ</span>
-              <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-royal">Shipping &amp; Logistics</span>
+        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-2.5 sm:px-5 sm:py-3 md:flex md:justify-between md:gap-6">
+          <a href="#top" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+            <img src={logo.url} alt="1HALIQ Shipping & Logistics logo" className="h-10 w-10 shrink-0 rounded object-contain sm:h-12 sm:w-12" width={48} height={48} />
+            <span className="min-w-0 leading-tight">
+              <span className="block font-display text-base font-extrabold tracking-tight text-primary sm:text-lg">1HALIQ</span>
+              <span className="block truncate text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-royal sm:text-[0.62rem] sm:tracking-[0.2em]">Shipping &amp; Logistics</span>
             </span>
           </a>
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
@@ -100,8 +100,12 @@ function Index() {
             <a href="#track" className="transition-colors hover:text-royal">Track</a>
             <a href="#about" className="transition-colors hover:text-royal">About</a>
           </nav>
-          <a href="#contact" className="rounded bg-royal px-4 py-2 text-sm font-semibold text-royal-foreground transition-colors hover:bg-primary">
-            Request a quote
+          <a
+            href="#contact"
+            className="inline-flex h-11 shrink-0 items-center justify-center rounded bg-royal px-3.5 text-xs font-semibold text-royal-foreground transition-colors hover:bg-primary sm:px-4 sm:text-sm"
+          >
+            <span className="sm:hidden">Quote</span>
+            <span className="hidden sm:inline">Request a quote</span>
           </a>
         </div>
       </header>
