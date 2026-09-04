@@ -150,16 +150,16 @@ function Index() {
         </section>
 
         {/* Services */}
-        <section id="services" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">Shipping services</p>
-          <h2 className="mt-3 max-w-2xl font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+        <section id="services" className="mx-auto max-w-6xl px-4 py-14 sm:px-5 sm:py-20 md:py-28">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-royal sm:text-xs sm:tracking-[0.28em]">Shipping services</p>
+          <h2 className="mt-3 max-w-2xl font-display text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">
             Three modes, one accountable operation.
           </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:mt-12 sm:gap-6 md:grid-cols-3">
             {services.map((s) => (
               <article key={s.title} className="group overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-shadow hover:shadow-lg">
-                <img src={s.img} alt={s.alt} loading="lazy" width={1024} height={768} className="h-48 w-full object-cover" />
-                <div className="p-6">
+                <img src={s.img} alt={s.alt} loading="lazy" width={1024} height={768} className="h-40 w-full object-cover sm:h-48" />
+                <div className="p-5 sm:p-6">
                   <div className="flex items-center gap-3">
                     <span className="flex h-10 w-10 items-center justify-center rounded bg-secondary text-royal">
                       <s.icon className="h-5 w-5" aria-hidden="true" />
