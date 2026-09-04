@@ -271,22 +271,22 @@ function Index() {
         </section>
 
         {/* Contact */}
-        <section id="contact" className="bg-secondary py-20 md:py-28">
-          <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">Contact</p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-4xl">Tell us what needs moving.</h2>
+        <section id="contact" className="bg-secondary py-14 sm:py-20 md:py-28">
+          <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:gap-12 sm:px-5 md:grid-cols-2">
+            <div className="min-w-0">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-royal sm:text-xs sm:tracking-[0.28em]">Contact</p>
+              <h2 className="mt-3 font-display text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">Tell us what needs moving.</h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
                 Share the route, commodity and timeline and we will come back with an all-in rate and transit time.
               </p>
-              <ul className="mt-8 space-y-4 text-sm">
-                <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-royal" aria-hidden="true" /> ops@1haliq.com</li>
-                <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-royal" aria-hidden="true" /> +1 (555) 018-4420</li>
-                <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-royal" aria-hidden="true" /> Port Business Centre, Suite 12</li>
+              <ul className="mt-6 space-y-1 text-sm sm:mt-8">
+                <li><a href="mailto:ops@1haliq.com" className="flex min-h-11 items-center gap-3 break-all hover:text-royal"><Mail className="h-4 w-4 shrink-0 text-royal" aria-hidden="true" /> ops@1haliq.com</a></li>
+                <li><a href="tel:+15550184420" className="flex min-h-11 items-center gap-3 hover:text-royal"><Phone className="h-4 w-4 shrink-0 text-royal" aria-hidden="true" /> +1 (555) 018-4420</a></li>
+                <li className="flex min-h-11 items-center gap-3"><MapPin className="h-4 w-4 shrink-0 text-royal" aria-hidden="true" /> Port Business Centre, Suite 12</li>
               </ul>
             </div>
             <form
-              className="rounded-lg border border-border bg-card p-6 shadow-sm"
+              className="min-w-0 rounded-lg border border-border bg-card p-5 shadow-sm sm:p-6"
               onSubmit={(e) => {
                 e.preventDefault();
                 setContactSent(true);
