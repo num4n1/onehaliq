@@ -345,7 +345,7 @@ function Field({ id, label, type = "text" }: { id: string; label: string; type?:
         id={id}
         type={type}
         required
-        className="mt-2 w-full rounded border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-royal focus:ring-2 focus:ring-royal/30"
+        className="mt-2 h-11 w-full min-w-0 rounded border border-input bg-background px-3 text-base outline-none focus:border-royal focus:ring-2 focus:ring-royal/30 sm:text-sm"
       />
     </div>
   );
