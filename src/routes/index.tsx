@@ -115,34 +115,34 @@ function Index() {
         <section className="relative isolate overflow-hidden">
           <img src={heroImg.url} alt="Container ship berthed at a port during blue hour" width={1600} height={1000} className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-royal/60" />
-          <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-36">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-primary-foreground/75">
+          <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-5 sm:py-24 md:py-36">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-primary-foreground/75 sm:text-xs sm:tracking-[0.32em]">
               Connecting Worlds. Delivering Trust.
             </p>
-            <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-primary-foreground md:text-6xl">
+            <h1 className="mt-4 max-w-3xl font-display text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-primary-foreground sm:mt-5 sm:text-4xl md:text-6xl">
               Freight that arrives when you said it would.
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-primary-foreground/80 sm:mt-5 sm:text-base md:text-lg">
               1HALIQ Shipping &amp; Logistics plans, moves and clears cargo by air, ocean and road — with one coordinator accountable from pickup to delivery.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a href="#track" className="rounded bg-royal px-6 py-3 text-sm font-semibold text-royal-foreground transition-colors hover:bg-background hover:text-primary">
+            <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
+              <a href="#track" className="inline-flex min-h-11 items-center justify-center rounded bg-royal px-6 py-3 text-sm font-semibold text-royal-foreground transition-colors hover:bg-background hover:text-primary">
                 Track a shipment
               </a>
-              <a href="#services" className="rounded border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10">
+              <a href="#services" className="inline-flex min-h-11 items-center justify-center rounded border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10">
                 Our services
               </a>
             </div>
-            <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-primary-foreground/20 pt-8 sm:grid-cols-4">
+            <dl className="mt-10 grid max-w-2xl grid-cols-2 gap-x-4 gap-y-6 border-t border-primary-foreground/20 pt-7 sm:mt-14 sm:gap-6 sm:pt-8 sm:grid-cols-4">
               {[
                 ["60+", "Countries served"],
                 ["120+", "Airports covered"],
                 ["98.4%", "On-time rate"],
                 ["24/7", "Shipment support"],
               ].map(([value, label]) => (
-                <div key={label}>
-                  <dt className="font-display text-2xl font-bold text-primary-foreground">{value}</dt>
-                  <dd className="mt-1 text-xs uppercase tracking-wider text-primary-foreground/65">{label}</dd>
+                <div key={label} className="min-w-0">
+                  <dt className="font-display text-xl font-bold text-primary-foreground sm:text-2xl">{value}</dt>
+                  <dd className="mt-1 text-[0.68rem] uppercase tracking-wider text-primary-foreground/65 sm:text-xs">{label}</dd>
                 </div>
               ))}
             </dl>
