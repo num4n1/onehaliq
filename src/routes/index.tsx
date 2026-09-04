@@ -1,23 +1,347 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import {
+  Plane,
+  Ship,
+  Truck,
+  ShieldCheck,
+  Clock,
+  Globe2,
+  Headset,
+  Search,
+  Mail,
+  Phone,
+  MapPin,
+  PackageCheck,
+} from "lucide-react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import logo from "@/assets/logo.jpg.asset.json";
+import heroImg from "@/assets/hero.jpg.asset.json";
+import airImg from "@/assets/air.jpg.asset.json";
+import oceanImg from "@/assets/ocean.jpg.asset.json";
+import roadImg from "@/assets/road.jpg.asset.json";
+import aboutImg from "@/assets/about.jpg.asset.json";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "1HALIQ Shipping & Logistics | Air, Ocean & Road Freight" },
+      {
+        name: "description",
+        content:
+          "1HALIQ Shipping & Logistics moves cargo worldwide by air, ocean and road. Connecting Worlds. Delivering Trust.",
+      },
+      { property: "og:title", content: "1HALIQ Shipping & Logistics" },
+      {
+        property: "og:description",
+        content:
+          "Global air, ocean and road freight with live shipment visibility. Connecting Worlds. Delivering Trust.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+const services = [
+  {
+    icon: Plane,
+    title: "Air Freight",
+    img: airImg.url,
+    alt: "Cargo aircraft being loaded at dawn",
+    copy: "Time-critical consignments moved on priority and consolidated air services to over 120 airports.",
+    points: ["Next-flight-out", "Charter & AOG", "Temperature-controlled"],
+  },
+  {
+    icon: Ship,
+    title: "Ocean Freight",
+    img: oceanImg.url,
+    alt: "Stacked blue shipping containers at an ocean terminal",
+    copy: "FCL and LCL sailings on trusted carrier alliances, with port-to-door coordination handled end to end.",
+    points: ["FCL & LCL", "Breakbulk & project cargo", "Customs clearance"],
+  },
+  {
+    icon: Truck,
+    title: "Road Freight",
+    img: roadImg.url,
+    alt: "Freight truck on a highway at dusk",
+    copy: "Regional trucking and last-mile distribution that keeps the final leg as reliable as the first.",
+    points: ["FTL & LTL", "Cross-border haulage", "Last-mile delivery"],
+  },
+];
+
+const reasons = [
+  { icon: Globe2, title: "Global Network", copy: "Agents and partners across 60+ countries on every major trade lane." },
+  { icon: Clock, title: "On-Time Discipline", copy: "98.4% of managed shipments delivered within the committed window." },
+  { icon: ShieldCheck, title: "Cargo Protection", copy: "Full insurance options, compliant documentation and secure handling." },
+  { icon: Headset, title: "One Point of Contact", copy: "A named coordinator per account, reachable 24/7 through the journey." },
+];
+
 function Index() {
+  const [tracking, setTracking] = useState("");
+  const [trackResult, setTrackResult] = useState<string | null>(null);
+  const [contactSent, setContactSent] = useState(false);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+    <div className="min-h-screen bg-background font-sans text-foreground">
+      <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+          <a href="#top" className="flex items-center gap-3">
+            <img src={logo.url} alt="1HALIQ Shipping & Logistics logo" className="h-12 w-12 rounded object-contain" width={48} height={48} />
+            <span className="leading-tight">
+              <span className="block font-display text-lg font-extrabold tracking-tight text-primary">1HALIQ</span>
+              <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-royal">Shipping &amp; Logistics</span>
+            </span>
+          </a>
+          <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
+            <a href="#services" className="transition-colors hover:text-royal">Services</a>
+            <a href="#why" className="transition-colors hover:text-royal">Why us</a>
+            <a href="#track" className="transition-colors hover:text-royal">Track</a>
+            <a href="#about" className="transition-colors hover:text-royal">About</a>
+          </nav>
+          <a href="#contact" className="rounded bg-royal px-4 py-2 text-sm font-semibold text-royal-foreground transition-colors hover:bg-primary">
+            Request a quote
+          </a>
+        </div>
+      </header>
+
+      <main id="top">
+        {/* Hero */}
+        <section className="relative isolate overflow-hidden">
+          <img src={heroImg.url} alt="Container ship berthed at a port during blue hour" width={1600} height={1000} className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-royal/60" />
+          <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-36">
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-primary-foreground/75">
+              Connecting Worlds. Delivering Trust.
+            </p>
+            <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-primary-foreground md:text-6xl">
+              Freight that arrives when you said it would.
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
+              1HALIQ Shipping &amp; Logistics plans, moves and clears cargo by air, ocean and road — with one coordinator accountable from pickup to delivery.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a href="#track" className="rounded bg-royal px-6 py-3 text-sm font-semibold text-royal-foreground transition-colors hover:bg-background hover:text-primary">
+                Track a shipment
+              </a>
+              <a href="#services" className="rounded border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10">
+                Our services
+              </a>
+            </div>
+            <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-primary-foreground/20 pt-8 sm:grid-cols-4">
+              {[
+                ["60+", "Countries served"],
+                ["120+", "Airports covered"],
+                ["98.4%", "On-time rate"],
+                ["24/7", "Shipment support"],
+              ].map(([value, label]) => (
+                <div key={label}>
+                  <dt className="font-display text-2xl font-bold text-primary-foreground">{value}</dt>
+                  <dd className="mt-1 text-xs uppercase tracking-wider text-primary-foreground/65">{label}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section id="services" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">Shipping services</p>
+          <h2 className="mt-3 max-w-2xl font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+            Three modes, one accountable operation.
+          </h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {services.map((s) => (
+              <article key={s.title} className="group overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-shadow hover:shadow-lg">
+                <img src={s.img} alt={s.alt} loading="lazy" width={1024} height={768} className="h-48 w-full object-cover" />
+                <div className="p-6">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded bg-secondary text-royal">
+                      <s.icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <h3 className="font-display text-xl font-bold tracking-tight">{s.title}</h3>
+                  </div>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
+                  <ul className="mt-5 space-y-2 text-sm text-foreground/80">
+                    {s.points.map((p) => (
+                      <li key={p} className="flex items-center gap-2">
+                        <PackageCheck className="h-4 w-4 shrink-0 text-royal" aria-hidden="true" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* Why choose us */}
+        <section id="why" className="bg-secondary py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">Why choose us</p>
+            <h2 className="mt-3 max-w-2xl font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+              Logistics judged on what actually lands.
+            </h2>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {reasons.map((r) => (
+                <div key={r.title} className="rounded-lg border border-border bg-card p-6">
+                  <r.icon className="h-6 w-6 text-royal" aria-hidden="true" />
+                  <h3 className="mt-4 font-display text-lg font-bold tracking-tight">{r.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.copy}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Tracking */}
+        <section id="track" className="bg-primary py-20 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary-foreground/70">Shipment tracking</p>
+              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-primary-foreground md:text-4xl">
+                Where is my cargo right now?
+              </h2>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-primary-foreground/75">
+                Enter a booking or AWB number for a status snapshot. This is a demo tracker — live tracking connects to our operations system on request.
+              </p>
+            </div>
+            <form
+              className="rounded-lg bg-card p-6 shadow-lg"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setTrackResult(
+                  tracking.trim()
+                    ? `Demo status for ${tracking.trim().toUpperCase()}: In transit — departed Jebel Ali, ETA in 6 days.`
+                    : "Please enter a tracking number.",
+                );
+              }}
+            >
+              <label htmlFor="tracking" className="text-sm font-semibold">Tracking number</label>
+              <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+                <input
+                  id="tracking"
+                  value={tracking}
+                  onChange={(e) => setTracking(e.target.value)}
+                  placeholder="e.g. HLQ-4820193"
+                  className="w-full rounded border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-royal focus:ring-2 focus:ring-royal/30"
+                />
+                <button type="submit" className="inline-flex items-center justify-center gap-2 rounded bg-royal px-5 py-2.5 text-sm font-semibold text-royal-foreground transition-colors hover:bg-primary">
+                  <Search className="h-4 w-4" aria-hidden="true" /> Track
+                </button>
+              </div>
+              {trackResult && (
+                <p className="mt-4 rounded border border-border bg-secondary px-3 py-2.5 text-sm text-foreground/80">{trackResult}</p>
+              )}
+            </form>
+          </div>
+        </section>
+
+        {/* About */}
+        <section id="about" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <img src={aboutImg.url} alt="Logistics team checking shipment paperwork in a warehouse" loading="lazy" width={1200} height={900} className="rounded-lg border border-border object-cover" />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">About 1HALIQ</p>
+              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+                Built on paperwork done right and promises kept.
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                We are a freight forwarding and logistics team serving importers, exporters and manufacturers who cannot afford surprises. Every booking is planned against real carrier capacity, documented properly for customs, and monitored until it is signed for.
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                That discipline is what our tagline means: Connecting Worlds. Delivering Trust.
+              </p>
+              <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+                {["Licensed freight forwarder", "Customs documentation in-house", "Cargo insurance arranged", "Transparent all-in quotes"].map((t) => (
+                  <li key={t} className="flex items-start gap-2 text-sm text-foreground/80">
+                    <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-royal" aria-hidden="true" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="bg-secondary py-20 md:py-28">
+          <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">Contact</p>
+              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-4xl">Tell us what needs moving.</h2>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+                Share the route, commodity and timeline and we will come back with an all-in rate and transit time.
+              </p>
+              <ul className="mt-8 space-y-4 text-sm">
+                <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-royal" aria-hidden="true" /> ops@1haliq.com</li>
+                <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-royal" aria-hidden="true" /> +1 (555) 018-4420</li>
+                <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-royal" aria-hidden="true" /> Port Business Centre, Suite 12</li>
+              </ul>
+            </div>
+            <form
+              className="rounded-lg border border-border bg-card p-6 shadow-sm"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setContactSent(true);
+              }}
+            >
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field id="name" label="Full name" />
+                <Field id="email" label="Email" type="email" />
+              </div>
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <Field id="origin" label="Origin" />
+                <Field id="destination" label="Destination" />
+              </div>
+              <div className="mt-4">
+                <label htmlFor="details" className="text-sm font-semibold">Shipment details</label>
+                <textarea
+                  id="details"
+                  rows={4}
+                  required
+                  className="mt-2 w-full rounded border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-royal focus:ring-2 focus:ring-royal/30"
+                  placeholder="Commodity, weight, dimensions, preferred mode and timing"
+                />
+              </div>
+              <button type="submit" className="mt-5 w-full rounded bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-royal">
+                Send enquiry
+              </button>
+              {contactSent && (
+                <p className="mt-4 text-sm text-royal">Thanks — this demo form doesn't send yet, but your details look good.</p>
+              )}
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-primary py-12 text-primary-foreground">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 sm:flex-row sm:items-center">
+          <div className="flex items-center gap-3">
+            <img src={logo.url} alt="1HALIQ Shipping & Logistics logo" loading="lazy" width={44} height={44} className="h-11 w-11 rounded bg-background object-contain" />
+            <div>
+              <p className="font-display text-base font-extrabold tracking-tight">1HALIQ Shipping &amp; Logistics</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/65">Connecting Worlds. Delivering Trust.</p>
+            </div>
+          </div>
+          <p className="text-xs text-primary-foreground/60">© {new Date().getFullYear()} 1HALIQ Shipping &amp; Logistics. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function Field({ id, label, type = "text" }: { id: string; label: string; type?: string }) {
+  return (
+    <div>
+      <label htmlFor={id} className="text-sm font-semibold">{label}</label>
+      <input
+        id={id}
+        type={type}
+        required
+        className="mt-2 w-full rounded border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-royal focus:ring-2 focus:ring-royal/30"
       />
     </div>
   );
