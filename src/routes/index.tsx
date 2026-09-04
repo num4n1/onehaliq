@@ -160,11 +160,11 @@ function Index() {
               <article key={s.title} className="group overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-shadow hover:shadow-lg">
                 <img src={s.img} alt={s.alt} loading="lazy" width={1024} height={768} className="h-40 w-full object-cover sm:h-48" />
                 <div className="p-5 sm:p-6">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded bg-secondary text-royal">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-secondary text-royal">
                       <s.icon className="h-5 w-5" aria-hidden="true" />
                     </span>
-                    <h3 className="font-display text-xl font-bold tracking-tight">{s.title}</h3>
+                    <h3 className="min-w-0 font-display text-lg font-bold tracking-tight sm:text-xl">{s.title}</h3>
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
                   <ul className="mt-5 space-y-2 text-sm text-foreground/80">
