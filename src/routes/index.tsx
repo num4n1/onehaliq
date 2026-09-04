@@ -201,11 +201,11 @@ function Index() {
         </section>
 
         {/* Tracking */}
-        <section id="track" className="bg-primary py-20 md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-2 md:items-center">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary-foreground/70">Shipment tracking</p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-primary-foreground md:text-4xl">
+        <section id="track" className="bg-primary py-14 sm:py-20 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:gap-10 sm:px-5 md:grid-cols-2 md:items-center">
+            <div className="min-w-0">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-primary-foreground/70 sm:text-xs sm:tracking-[0.28em]">Shipment tracking</p>
+              <h2 className="mt-3 font-display text-2xl font-extrabold tracking-tight text-primary-foreground sm:text-3xl md:text-4xl">
                 Where is my cargo right now?
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-primary-foreground/75">
@@ -213,7 +213,7 @@ function Index() {
               </p>
             </div>
             <form
-              className="rounded-lg bg-card p-6 shadow-lg"
+              className="min-w-0 rounded-lg bg-card p-5 shadow-lg sm:p-6"
               onSubmit={(e) => {
                 e.preventDefault();
                 setTrackResult(
