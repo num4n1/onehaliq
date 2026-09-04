@@ -244,12 +244,12 @@ function Index() {
         </section>
 
         {/* About */}
-        <section id="about" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <div className="grid gap-12 md:grid-cols-2 md:items-center">
-            <img src={aboutImg.url} alt="Logistics team checking shipment paperwork in a warehouse" loading="lazy" width={1200} height={900} className="rounded-lg border border-border object-cover" />
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-royal">About 1HALIQ</p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+        <section id="about" className="mx-auto max-w-6xl px-4 py-14 sm:px-5 sm:py-20 md:py-28">
+          <div className="grid gap-8 sm:gap-12 md:grid-cols-2 md:items-center">
+            <img src={aboutImg.url} alt="Logistics team checking shipment paperwork in a warehouse" loading="lazy" width={1200} height={900} className="h-56 w-full rounded-lg border border-border object-cover sm:h-auto" />
+            <div className="min-w-0">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-royal sm:text-xs sm:tracking-[0.28em]">About 1HALIQ</p>
+              <h2 className="mt-3 font-display text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">
                 Built on paperwork done right and promises kept.
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
