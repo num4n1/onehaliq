@@ -306,11 +306,11 @@ function Index() {
                   id="details"
                   rows={4}
                   required
-                  className="mt-2 w-full rounded border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-royal focus:ring-2 focus:ring-royal/30"
+                  className="mt-2 w-full min-w-0 rounded border border-input bg-background px-3 py-2.5 text-base outline-none focus:border-royal focus:ring-2 focus:ring-royal/30 sm:text-sm"
                   placeholder="Commodity, weight, dimensions, preferred mode and timing"
                 />
               </div>
-              <button type="submit" className="mt-5 w-full rounded bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-royal">
+              <button type="submit" className="mt-5 min-h-11 w-full rounded bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-royal">
                 Send enquiry
               </button>
               {contactSent && (
