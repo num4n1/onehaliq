@@ -230,9 +230,9 @@ function Index() {
                   value={tracking}
                   onChange={(e) => setTracking(e.target.value)}
                   placeholder="e.g. HLQ-4820193"
-                  className="w-full rounded border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-royal focus:ring-2 focus:ring-royal/30"
+                  className="h-11 w-full min-w-0 rounded border border-input bg-background px-3 text-base outline-none focus:border-royal focus:ring-2 focus:ring-royal/30 sm:text-sm"
                 />
-                <button type="submit" className="inline-flex items-center justify-center gap-2 rounded bg-royal px-5 py-2.5 text-sm font-semibold text-royal-foreground transition-colors hover:bg-primary">
+                <button type="submit" className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded bg-royal px-5 text-sm font-semibold text-royal-foreground transition-colors hover:bg-primary">
                   <Search className="h-4 w-4" aria-hidden="true" /> Track
                 </button>
               </div>
