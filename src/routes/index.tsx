@@ -321,13 +321,13 @@ function Index() {
         </section>
       </main>
 
-      <footer className="bg-primary py-12 text-primary-foreground">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 sm:flex-row sm:items-center">
-          <div className="flex items-center gap-3">
-            <img src={logo.url} alt="1HALIQ Shipping & Logistics logo" loading="lazy" width={44} height={44} className="h-11 w-11 rounded bg-background object-contain" />
-            <div>
-              <p className="font-display text-base font-extrabold tracking-tight">1HALIQ Shipping &amp; Logistics</p>
-              <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/65">Connecting Worlds. Delivering Trust.</p>
+      <footer className="bg-primary py-10 text-primary-foreground sm:py-12">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-5 px-4 sm:flex-row sm:items-center sm:gap-6 sm:px-5">
+          <div className="flex min-w-0 items-center gap-3">
+            <img src={logo.url} alt="1HALIQ Shipping & Logistics logo" loading="lazy" width={44} height={44} className="h-11 w-11 shrink-0 rounded bg-background object-contain" />
+            <div className="min-w-0">
+              <p className="font-display text-sm font-extrabold tracking-tight sm:text-base">1HALIQ Shipping &amp; Logistics</p>
+              <p className="text-[0.6rem] uppercase tracking-[0.14em] text-primary-foreground/65 sm:text-xs sm:tracking-[0.2em]">Connecting Worlds. Delivering Trust.</p>
             </div>
           </div>
           <p className="text-xs text-primary-foreground/60">© {new Date().getFullYear()} 1HALIQ Shipping &amp; Logistics. All rights reserved.</p>
