@@ -141,7 +141,7 @@ function Index() {
               Freight that arrives when you said it would.
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-primary-foreground/80 sm:mt-4 sm:text-base">
-              1HALIQ Shipping &amp; Logistics plans, moves and clears cargo by air, ocean and road — with one coordinator accountable from pickup to delivery.
+              1HALIQ Shipping &amp; Logistics plans, moves and clears cargo by air, ocean and road, with one coordinator accountable from pickup to delivery.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
               <a href="#track" className="inline-flex min-h-11 items-center justify-center rounded bg-royal px-6 py-3 text-sm font-semibold text-royal-foreground transition-colors hover:bg-background hover:text-primary">
@@ -242,7 +242,7 @@ function Index() {
                 Where is my cargo right now?
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-primary-foreground/75">
-                Enter a booking or AWB number for a status snapshot. This is a demo tracker — live tracking connects to our operations system on request.
+                Enter a booking or AWB number for a status snapshot. This is a demo tracker. Live tracking connects to our operations system on request.
               </p>
             </div>
             <form
@@ -251,7 +251,7 @@ function Index() {
                 e.preventDefault();
                 setTrackResult(
                   tracking.trim()
-                    ? `Demo status for ${tracking.trim().toUpperCase()}: In transit — departed Jebel Ali, ETA in 6 days.`
+                    ? `Demo status for ${tracking.trim().toUpperCase()}: In transit, departed Jebel Ali, ETA in 6 days.`
                     : "Please enter a tracking number.",
                 );
               }}
@@ -329,7 +329,7 @@ function Index() {
                     method: "POST",
                     headers: { "Content-Type": "application/json", Accept: "application/json" },
                     body: JSON.stringify({
-                      _subject: "New quote enquiry — 1HALIQ website",
+                      _subject: "New quote enquiry from the 1HALIQ website",
                       _template: "table",
                       _captcha: "false",
                       ...Object.fromEntries(new FormData(form)),
@@ -366,7 +366,7 @@ function Index() {
                 {contactStatus === "sending" ? "Sending…" : "Send enquiry"}
               </button>
               {contactStatus === "sent" && (
-                <p className="mt-4 text-sm text-royal">Thanks — your enquiry has been sent. Our sales team will be in touch shortly.</p>
+                <p className="mt-4 text-sm text-royal">Thanks, your enquiry has been sent. Our sales team will be in touch shortly.</p>
               )}
               {contactStatus === "error" && (
                 <p className="mt-4 text-sm text-destructive">Something went wrong sending your enquiry. Please email {SALES_EMAIL} directly.</p>

@@ -65,11 +65,13 @@ function RouteMap() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       // Map is at least 900px wide so it stays legible on phones, centred near the Gulf.
-      const mapWidth = Math.max(width * 1.05, 900);
+      // Push the hub to the right on wide screens so routes stay clear of the headline text.
+      const hubX = width >= 1024 ? 0.74 : width >= 640 ? 0.62 : 0.5;
+      const mapWidth = Math.max(width * 1.0, 900);
       const projection = geoEquirectangular()
         .scale(mapWidth / (2 * Math.PI))
         .center([48, 18])
-        .translate([width * 0.5, height * 0.52]);
+        .translate([width * hubX, height * 0.52]);
 
       // Rasterise land, then sample it on a grid to get a dotted map.
       const mask = document.createElement("canvas");
