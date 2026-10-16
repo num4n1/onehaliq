@@ -149,8 +149,92 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 65px;
+  }
+
+  @media (min-width: 640px) {
+    html {
+      scroll-padding-top: 73px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+}
+
+/* Hero backdrop animations */
+.hero-cloud {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, rgb(255 255 255 / 0.12), transparent);
+  filter: blur(14px);
+  animation: hero-cloud-drift linear infinite;
+}
+
+.hero-plane {
+  animation: hero-plane-fly 38s linear infinite;
+  transform: rotate(45deg);
+}
+
+.hero-ship {
+  animation: hero-ship-glide 70s linear infinite;
+  animation-delay: -20s;
+}
+
+.hero-ship-bob {
+  animation: hero-ship-bob 5s ease-in-out infinite;
+}
+
+@keyframes hero-ship-bob {
+  0%, 100% { transform: translateY(1px) rotate(-1.8deg); }
+  50% { transform: translateY(-3px) rotate(1.8deg); }
+}
+
+.hero-wave {
+  animation: hero-wave-shift 18s linear infinite;
+}
+
+.hero-wave-slow {
+  animation: hero-wave-shift 28s linear infinite reverse;
+}
+
+@keyframes hero-cloud-drift {
+  from { transform: translateX(-30vw); }
+  to { transform: translateX(40vw); }
+}
+
+@keyframes hero-plane-fly {
+  from { transform: translate(-10vw, 12px) rotate(45deg); }
+  to { transform: translate(110vw, 2px) rotate(45deg); }
+}
+
+@keyframes hero-ship-glide {
+  from { transform: translateX(-10vw); }
+  to { transform: translateX(110vw); }
+}
+
+@keyframes hero-wave-shift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cloud,
+  .hero-plane,
+  .hero-ship,
+  .hero-ship-bob,
+  .hero-wave,
+  .hero-wave-slow {
+    animation: none;
   }
 }
