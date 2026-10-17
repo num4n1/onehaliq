@@ -5,4 +5,4 @@
  * and back to `false` to bring the site back. Commit and push to `main` to apply it:
  * Cloudflare redeploys automatically (about a minute).
  */
-export const MAINTENANCE_MODE = false;
+export const MAINTENANCE_MODE = true;
