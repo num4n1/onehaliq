@@ -104,7 +104,15 @@ function Index() {
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="sticky top-0 z-50 border-b border-border/70 bg-white">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-2.5 sm:px-5 sm:py-3 md:flex md:justify-between md:gap-6">
-          <a href="#top" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.history.replaceState(null, "", window.location.pathname);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="flex min-w-0 items-center gap-2.5 sm:gap-3"
+          >
             <img src={logoUrl} alt="1HALIQ Shipping & Logistics logo" className="h-10 w-auto shrink-0 object-contain sm:h-12" width={64} height={48} />
             <span className="min-w-0 leading-tight">
               <span className="block font-display text-base font-extrabold tracking-tight text-primary sm:text-lg">1HALIQ</span>

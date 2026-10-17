@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { MAINTENANCE_MODE } from "../config/site";
+import { MaintenancePage } from "../components/MaintenancePage";
 
 function NotFoundComponent() {
   return (
@@ -83,6 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Global air, ocean and road freight. Connecting Worlds. Delivering Trust.",
       },
       { name: "author", content: "1HALIQ Shipping & Logistics" },
+      ...(MAINTENANCE_MODE ? [{ name: "robots", content: "noindex, nofollow" }] : []),
       { property: "og:title", content: "1HALIQ Shipping & Logistics" },
       {
         property: "og:description",
@@ -134,7 +137,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      {MAINTENANCE_MODE ? <MaintenancePage /> : <Outlet />}
     </QueryClientProvider>
   );
 }
