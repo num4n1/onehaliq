@@ -238,3 +238,14 @@
     animation: none;
   }
 }
+
+/* Short phones: tighten the landing page so the hero and collaborations still fit one screen. */
+@media (max-width: 639px) and (max-height: 800px) {
+  .land-content { padding-bottom: 2.5rem; }
+  .land-h1 { margin-top: 0.75rem; }
+  .land-intro { margin-top: 0.75rem; }
+  .land-actions { margin-top: 1rem; }
+  .land-stats { margin-top: 1rem; padding-top: 0.75rem; }
+  .land-partners { padding-top: 1rem; padding-bottom: 1rem; }
+  .land-partners ul { margin-top: 0.5rem; row-gap: 0.25rem; }
+}

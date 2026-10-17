@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 import { HeroBackground, HeroMap } from "@/components/HeroBackground";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import logoUrl from "@/assets/logo-emblem.png";
 import maerskLogo from "@/assets/partners/maersk.svg";
 import hapagLogo from "@/assets/partners/hapag-lloyd.svg";
@@ -141,17 +142,17 @@ function Index() {
         <section className="relative isolate flex flex-1 items-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/80" />
           <HeroBackground />
-          <div className="relative mx-auto w-full max-w-6xl px-4 pb-14 pt-12 sm:px-5 sm:pb-16 sm:pt-12">
+          <div className="land-content relative mx-auto w-full max-w-6xl px-4 pb-12 pt-12 sm:px-5 sm:pb-16 sm:pt-12">
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-primary-foreground/75 sm:text-xs sm:tracking-[0.32em]">
               Connecting Worlds. Delivering Trust.
             </p>
-            <h1 className="mt-4 max-w-3xl font-display text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-primary-foreground sm:mt-5 sm:text-4xl md:text-5xl">
+            <h1 className="land-h1 mt-4 max-w-3xl font-display text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-primary-foreground sm:mt-5 sm:text-4xl md:text-5xl">
               Freight that arrives when you said it would.
             </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-primary-foreground/80 sm:mt-4 sm:text-base">
+            <p className="land-intro mt-4 max-w-2xl text-sm leading-relaxed text-primary-foreground/80 sm:mt-4 sm:text-base">
               1HALIQ Shipping &amp; Logistics plans, moves and clears cargo by air, ocean and road, with one coordinator accountable from pickup to delivery.
             </p>
-            <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
+            <div className="land-actions mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
               <a href="#track" className="inline-flex min-h-11 items-center justify-center rounded bg-royal px-6 py-3 text-sm font-semibold text-royal-foreground transition-colors hover:bg-background hover:text-primary">
                 Track a shipment
               </a>
@@ -159,7 +160,7 @@ function Index() {
                 Our services
               </a>
             </div>
-            <dl className="mt-7 grid max-w-2xl grid-cols-2 gap-x-4 gap-y-4 border-t border-primary-foreground/20 pt-5 text-center sm:mt-8 sm:gap-6 sm:pt-5 sm:text-left sm:grid-cols-4">
+            <dl className="land-stats mt-7 grid max-w-2xl grid-cols-2 gap-x-4 gap-y-4 border-t border-primary-foreground/20 pt-5 text-center sm:mt-8 sm:gap-6 sm:pt-5 sm:text-left sm:grid-cols-4">
               {[
                 ["60+", "Countries served"],
                 ["120+", "Airports covered"],
@@ -167,8 +168,8 @@ function Index() {
                 ["24/7", "Shipment support"],
               ].map(([value, label]) => (
                 <div key={label} className="min-w-0">
-                  <dt className="font-display text-xl font-bold text-primary-foreground sm:text-2xl">{value}</dt>
-                  <dd className="mt-1 text-[0.68rem] uppercase tracking-wider text-primary-foreground/65 sm:text-xs">{label}</dd>
+                  <dt className="font-display text-[1.65rem] font-extrabold leading-tight text-primary-foreground sm:text-2xl">{value}</dt>
+                  <dd className="mt-0.5 text-[0.72rem] font-bold uppercase tracking-wider text-primary-foreground/80 sm:font-normal sm:text-primary-foreground/65">{label}</dd>
                 </div>
               ))}
             </dl>
@@ -177,7 +178,7 @@ function Index() {
         </section>
 
           {/* Collaborations */}
-          <section id="partners" className="bg-white py-6 sm:py-8">
+          <section id="partners" className="land-partners bg-white py-6 sm:py-8">
             <div className="mx-auto max-w-6xl px-4 sm:px-5">
               <p className="text-center text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-royal sm:text-xs sm:tracking-[0.28em]">Collaborations</p>
               <ul className="mt-4 grid grid-cols-3 items-center gap-x-4 gap-y-3 sm:mt-5 lg:grid-cols-6">
@@ -397,6 +398,8 @@ function Index() {
           <p className="text-xs text-primary-foreground/60">© {new Date().getFullYear()} 1HALIQ Shipping &amp; Logistics. All rights reserved.</p>
         </div>
       </footer>
+
+      <WhatsAppButton />
     </div>
   );
 }
