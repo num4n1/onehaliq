@@ -15,7 +15,7 @@ import {
   PackageCheck,
 } from "lucide-react";
 
-import { HeroBackground } from "@/components/HeroBackground";
+import { HeroBackground, HeroMap } from "@/components/HeroBackground";
 import logoUrl from "@/assets/logo-emblem.png";
 import maerskLogo from "@/assets/partners/maersk.svg";
 import hapagLogo from "@/assets/partners/hapag-lloyd.svg";
@@ -151,7 +151,7 @@ function Index() {
                 Our services
               </a>
             </div>
-            <dl className="mt-7 grid max-w-2xl grid-cols-2 gap-x-4 gap-y-4 border-t border-primary-foreground/20 pt-5 sm:mt-8 sm:gap-6 sm:pt-5 sm:grid-cols-4">
+            <dl className="mt-7 grid max-w-2xl grid-cols-2 gap-x-4 gap-y-4 border-t border-primary-foreground/20 pt-5 text-center sm:mt-8 sm:gap-6 sm:pt-5 sm:text-left sm:grid-cols-4">
               {[
                 ["60+", "Countries served"],
                 ["120+", "Airports covered"],
@@ -165,6 +165,7 @@ function Index() {
               ))}
             </dl>
           </div>
+          <HeroMap />
         </section>
 
           {/* Collaborations */}

@@ -219,12 +219,22 @@ function ContainerShip({ className }: { className?: string }) {
   );
 }
 
-/** Decorative animated backdrop for the hero: route map, drifting plane/ship, clouds and waves. */
+/** Dotted route map backdrop. Hidden on phones, where it would sit behind the text. */
+export function HeroMap() {
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 hidden sm:block"
+    >
+      <RouteMap />
+    </div>
+  );
+}
+
+/** Decorative animated backdrop for the hero: drifting plane/ship, clouds and waves. */
 export function HeroBackground() {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-      <RouteMap />
-
       <div className="hero-cloud left-[8%] top-[14%] h-16 w-72 [animation-duration:110s]" />
       <div className="hero-cloud left-[55%] top-[30%] h-12 w-56 [animation-delay:-40s] [animation-duration:140s]" />
       <div className="hero-cloud left-[25%] top-[62%] h-14 w-64 [animation-delay:-80s] [animation-duration:125s]" />
